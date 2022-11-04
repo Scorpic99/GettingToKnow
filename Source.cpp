@@ -12,6 +12,7 @@ int main()
 	for (int i = 10; i <= 60; i += 10) {
         creatFile << i << " ";
 	}
+    creatFile.close();
 
     std::ifstream inFile("in.txt");
     int sizeN, sizeM, temp;
@@ -24,6 +25,8 @@ int main()
         }
     }
     else {
+        delete[] arr;
+        inFile.close();
         return 1;
     }
     inFile >> sizeM;
@@ -35,6 +38,9 @@ int main()
         }
     }
     else {
+        delete[] arr;
+        delete[] arr2;
+        inFile.close();
         return 1;
     }
     inFile.close();
